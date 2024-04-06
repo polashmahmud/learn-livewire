@@ -9,7 +9,6 @@ use Livewire\Form;
 class BookForm extends Form
 {
     #[Rule('required', as: 'Title of the book', message: ':attribute is required.')]
-    #[Rule('min:20')]
     public string $title = '';
 
     #[Rule('required', as: 'Author of the book', message: ':attribute is required.')]
