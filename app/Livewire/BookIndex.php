@@ -8,14 +8,14 @@ use Livewire\Component;
 
 class BookIndex extends Component
 {
-    public BookForm $form;
-
-    public function submit()
-    {
-        $this->form->validate();
-
-        $this->form->create();
-    }
+    protected $listeners = [
+        'book.create' => '$refresh'
+    ];
+//    #[On('book.create')]
+//    public function bookCreated()
+//    {
+//
+//    }
 
     public function render()
     {
