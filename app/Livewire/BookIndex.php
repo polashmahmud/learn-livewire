@@ -11,11 +11,6 @@ class BookIndex extends Component
     protected $listeners = [
         'book.create' => '$refresh'
     ];
-//    #[On('book.create')]
-//    public function bookCreated()
-//    {
-//
-//    }
 
     public function render()
     {
