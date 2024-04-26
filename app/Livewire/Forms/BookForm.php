@@ -17,12 +17,15 @@ class BookForm extends Form
     #[Rule('required', as: 'Author of the book', message: ':attribute is required.')]
     public string $author = '';
 
+    #[Rule('nullable')]
+    public ?string $notes = '';
+
     public function setBook(Book $book)
     {
         $this->book = $book;
 
         $this->fill(
-            $this->book->only('title', 'author')
+            $this->book->only('title', 'author', 'notes')
         );
     }
 
@@ -42,5 +45,12 @@ class BookForm extends Form
         );
 
         $this->reset();
+    }
+
+    public function updatedNotes()
+    {
+        $this->book->update(
+            $this->only('notes')
+        );
     }
 }
