@@ -13,9 +13,13 @@ class CreateBook extends Component
     {
         $this->form->validate();
 
-        $this->form->create();
+        $book = $this->form->create();
 
         $this->dispatch('book.create');
+
+        $this->dispatch('alert', [
+            'body' => 'Book ' . $book->title . ' was created'
+        ]);
     }
 
     public function render()

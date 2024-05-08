@@ -40,11 +40,13 @@ class BookForm extends Form
 
     public function create()
     {
-        auth()->user()->books()->create(
+        $book = auth()->user()->books()->create(
             $this->only('title', 'author')
         );
 
         $this->reset();
+
+        return $book;
     }
 
     public function updatedNotes()
